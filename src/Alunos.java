@@ -1,11 +1,25 @@
 package src;
 
-public class Alunos {
+public class Alunos{
     String nome;
     int rgm;
-    Disciplinas disciplinas;
+    Disciplinas disciplina;
+
+    public Alunos(String nome, int rgm){
+        this.nome = nome;
+        this.rgm = rgm;
+
+    }
+    public String getNome(){
+        return nome;
+    }
+    public int getRgm(){      
+        return rgm;
+    }
 
     public String ShowAlunos(){
-       return "Aluno-nome: " + nome + " RGM: "+ rgm + "\n Disciplina: "  + disciplinas.disciplina + " Nota: " + disciplinas.nota;
+       return "Aluno-nome: " + nome + " RGM: "+ rgm + "\n Disciplina: "  + disciplina.nome_disciplina + " Nota: " + disciplina.nota;
     }
 }
+
+

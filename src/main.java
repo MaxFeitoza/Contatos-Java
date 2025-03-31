@@ -1,17 +1,14 @@
 package src;
-import  java.util.Scanner;
+
 public class main {
     public static void main(String[] args) {
         System.out.println("CONTATOS - JAVA");
 
-        Alunos alunotest = new Alunos();
-
-        alunotest.nome = "Juazeirinho do norte";
-        alunotest.rgm = 54354634;
-        alunotest.disciplinas = new Disciplinas();
-        alunotest.disciplinas.nota = 7.0f;
-        alunotest.disciplinas.disciplina = "Ciencia da computacao";
-
+        Alunos alunotest = new Alunos("Juazeirinho do norte", 5446340);
+    
+        alunotest.disciplina = new Disciplinas();
+        alunotest.disciplina.nome_disciplina = "Ciencia da computacao";
+        alunotest.disciplina.nota = 7.0f;
 
         System.out.println(alunotest.ShowAlunos());
     }

@@ -8,7 +8,7 @@ public class Alunos{
     public Alunos(String nome, int rgm){
         this.nome = nome;
         this.rgm = rgm;
-
+        
     }
     public String getNome(){
         return nome;

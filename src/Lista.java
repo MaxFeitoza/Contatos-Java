@@ -31,21 +31,31 @@ public class Lista{
         }
     }
 
-    public boolean insereAlunos(Alunos Alunos) {
+    public boolean insereAlunos(int rgm , String nome) {
+        for (int i = 0; i <= tamanho_lista; i++) {
+            if (rgm == alunos[i].getRgm()) {
+                limpartela.limpatela();
+                System.out.println("RGM JA EXISTE");
+                return false;
+            }
+        }
+
         // Verifica se lista está cheia
         if (listaCheia()) {
+            limpartela.limpatela();
             System.out.println("Lista de alunos cheia!");
             return false;
         }
+        Alunos Aluno = new Alunos(nome, rgm);
         for (int i = 0; i <= tamanho_lista; i++) {
-            if (alunos[i] != null && Alunos.getRgm() == alunos[i].getRgm()) {
+            if (Aluno.getRgm() == alunos[i].getRgm()) {
                 return false;
             }
         }
         
         int posicao = 0;
         // verifica se a posicao é menor ou igual que o ultimo Alunos e se o RGM do ultimo Alunos é menor  que o RGM do Alunos novo
-        while (posicao <= tamanho_lista && (alunos[posicao].getRgm()) < (Alunos.getRgm())) {
+        while (posicao <= tamanho_lista && (alunos[posicao].getRgm()) < (Aluno.getRgm())) {
             posicao++;
         }
 
@@ -53,7 +63,7 @@ public class Lista{
         deslocaDireita(posicao);
 
         // coloca o Alunos na lista de alunos
-        alunos[posicao] = Alunos;
+        alunos[posicao] = Aluno;
         tamanho_lista++;
         return true;
     }
@@ -92,7 +102,7 @@ public class Lista{
         deslocaEsquerda(posicao);
         alunos[tamanho_lista] = null;
         tamanho_lista--;
-        
+        limpartela.limpatela();
         System.out.println("Aluno com RGM " + rgm + " removido com sucesso!");
     }
     public String procurar(int rgm){

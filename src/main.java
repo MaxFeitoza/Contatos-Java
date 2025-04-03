@@ -26,10 +26,17 @@ import java.util.Scanner;
                         System.out.println("Digite o rgm  do aluno: : ");
                         int rgm = input.nextInt();
                         input.nextLine();
+                        
                         Alunos aluno = new Alunos(nome, rgm);
-                        lista.insereAlunos(aluno);
-                        System.out.println("Aluno Cadastrado com sucesso!");
-                        limpartela.limpatela();
+                        boolean inserido = lista.insereAlunos(aluno);
+                        if (inserido){
+                            lista.insereAlunos(aluno);
+                            System.out.println("Aluno Cadastrado com sucesso!");
+                            limpartela.limpatela();
+                        } else {
+                            limpartela.limpatela();
+                            System.out.println("Erro: RGM já está cadastrado!"); 
+                        }
                         break;
                     case 2:
                         limpartela.limpatela();

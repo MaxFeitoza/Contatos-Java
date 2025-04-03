@@ -26,7 +26,7 @@ public class Lista{
 
     }
     public void deslocaEsquerda(int posicao){
-        for(int i = posicao; i < tamanho_lista - 1; i++){
+        for(int i = posicao; i < tamanho_lista; i++){
             alunos[i] = alunos[i + 1];
         }
     }
@@ -37,9 +37,14 @@ public class Lista{
             System.out.println("Lista de alunos cheia!");
             return false;
         }
-
-        // verifica se a posicao é menor ou igual que o ultimo Alunos e se o RGM do ultimo Alunos é menor  que o RGM do Alunos novo
+        for (int i = 0; i <= tamanho_lista; i++) {
+            if (alunos[i] != null && Alunos.getRgm() == alunos[i].getRgm()) {
+                return false;
+            }
+        }
+        
         int posicao = 0;
+        // verifica se a posicao é menor ou igual que o ultimo Alunos e se o RGM do ultimo Alunos é menor  que o RGM do Alunos novo
         while (posicao <= tamanho_lista && (alunos[posicao].getRgm()) < (Alunos.getRgm())) {
             posicao++;
         }
@@ -62,23 +67,33 @@ public class Lista{
             System.out.println("Alunos: " + alunos[i].getNome() + " | RGM: " + alunos[i].getRgm());
         }
     }
-    public boolean remover (int rgm){    
+    public void remover(int rgm) {
+        if(listaVazia()) {
+            System.out.println("Não existem alunos cadastrados!");
+            return;  
+        }
+        
         int posicao = -1;
-        for(int i = 0; i < tamanho_lista; i++){
-            if(rgm == alunos[i].getRgm()){
-                System.out.println(alunos[i].getRgm());
+        for(int i = 0; i <= tamanho_lista; i++) {
+            if(rgm == alunos[i].getRgm()) {
                 posicao = i;
-                deslocaEsquerda(3);
                 break;
             }
         }
-        if (posicao == -1){
-            System.out.println("Aluno não identificado! ");
-            return false;
+        
+        if(posicao == -1) {
+            System.out.println("Aluno com RGM " + rgm + " não encontrado!");
+            return;
         }
+        
+        
+        
+        
+        deslocaEsquerda(posicao);
         alunos[tamanho_lista] = null;
         tamanho_lista--;
-        return true;
+        
+        System.out.println("Aluno com RGM " + rgm + " removido com sucesso!");
     }
     public String procurar(int rgm){
         int index;

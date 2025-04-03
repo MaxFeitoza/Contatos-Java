@@ -18,7 +18,6 @@ import java.util.Scanner;
 
                 switch(opcao){
                     case 1:
-                        limpartela.limpatela();
                         System.out.println("Digite o nome do aluno: ");
                         String nome = input.next();
                         input.nextLine();
@@ -27,15 +26,11 @@ import java.util.Scanner;
                         int rgm = input.nextInt();
                         input.nextLine();
                         
-                        Alunos aluno = new Alunos(nome, rgm);
-                        boolean inserido = lista.insereAlunos(aluno);
+                        boolean inserido = lista.insereAlunos(rgm,nome);
                         if (inserido){
-                            lista.insereAlunos(aluno);
+                            lista.insereAlunos(rgm,nome);;
                             System.out.println("Aluno Cadastrado com sucesso!");
                             limpartela.limpatela();
-                        } else {
-                            limpartela.limpatela();
-                            System.out.println("Erro: RGM já está cadastrado!"); 
                         }
                         break;
                     case 2:

@@ -108,8 +108,10 @@ public class Lista{
     public String procurar(int rgm){
         int index;
         for(index = 0; index < 60; index += 1){
-            if(rgm == alunos[index].getRgm()){
-                return "ALUNO ENCONTRADO\n"+"Nome aluno: "+ alunos[index].getNome() + " Rgm: "+alunos[index].getRgm();
+            if (alunos[index] != null){
+                if(rgm == alunos[index].getRgm()){
+                    return "ALUNO ENCONTRADO\n"+"Nome aluno: "+ alunos[index].getNome() + "| Rgm: "+alunos[index].getRgm();
+                }
             }
         }
         return "Aluno com esse rgm ("+Integer.toString(rgm) +") nao existe!";

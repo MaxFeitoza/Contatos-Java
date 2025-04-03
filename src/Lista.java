@@ -3,7 +3,7 @@ package src;
 import javax.print.DocFlavor.STRING;
 
 public class Lista{
-    private static final int MAX = 3;
+    private static final int MAX = 60;
     public Alunos[] alunos ;
     public int tamanho_lista = -1;
     //inicializa a lista
@@ -48,7 +48,7 @@ public class Lista{
         }
         Alunos Aluno = new Alunos(nome, rgm);
         for (int i = 0; i <= tamanho_lista; i++) {
-            if (alunos[i] != null && Aluno.getRgm() == alunos[i].getRgm()) {
+            if (Aluno.getRgm() == alunos[i].getRgm()) {
                 return false;
             }
         }
@@ -102,7 +102,7 @@ public class Lista{
         deslocaEsquerda(posicao);
         alunos[tamanho_lista] = null;
         tamanho_lista--;
-        
+        limpartela.limpatela();
         System.out.println("Aluno com RGM " + rgm + " removido com sucesso!");
     }
     public String procurar(int rgm){

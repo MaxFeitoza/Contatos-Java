@@ -3,12 +3,12 @@ package src;
 public class Alunos{
     String nome;
     int rgm;
-    Disciplinas disciplina;
-
+    double nota;
+    boolean tem_disciplina = false;
     public Alunos(String nome, int rgm){
         this.nome = nome;
         this.rgm = rgm;
-        
+        this.nota = nota;
     }
     public String getNome(){
         return nome;
@@ -18,8 +18,9 @@ public class Alunos{
     }
 
     public String ShowAlunos(){
-       return "Aluno-nome: " + nome + " RGM: "+ rgm + "\n Disciplina: "  + disciplina.nome_disciplina + " Nota: " + disciplina.nota;
+       return "Aluno-nome: " + nome + " RGM: "+ rgm + "\n Disciplina: " + " Nota: " + nota;
     }
+
 }
 
 

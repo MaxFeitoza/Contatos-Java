@@ -5,10 +5,15 @@ import javax.print.DocFlavor.STRING;
 public class Lista{
     private static final int MAX = 60;
     public Alunos[] alunos ;
+    public Disciplinas[] disciplinas;
+    public DisciplinasAlunos[] disciplinas_alunos;
     public int tamanho_lista = -1;
+    private int tamanho_relacionamento = 0;
     //inicializa a lista
     public Lista() {
         alunos = new Alunos[MAX];
+        disciplinas = new Disciplinas[3];
+        disciplinas_alunos = new DisciplinasAlunos[MAX];
     }
 
 
@@ -68,14 +73,30 @@ public class Lista{
         return true;
     }
     
+    public void getDisciplinasAlunos(int rgm_aluno){
+        for (int i = 0; i < tamanho_relacionamento; i++) {
+            if (disciplinas_alunos[i] != null && disciplinas_alunos[i].rgm_aluno == rgm_aluno) {
+                System.out.println(disciplinas_alunos[i].nome_disciplina);
+            }
+        }
+    }
+
+
     public void listaralunos() {
         if (listaVazia()) {
             System.out.println("Nenhum Alunos cadastrado!");
         }
         // percorre a lista mostrando os alunos
         for (int i = 0; i <= tamanho_lista; i++) {
-            System.out.println("Alunos: " + alunos[i].getNome() + " | RGM: " + alunos[i].getRgm());
-        }
+            if(alunos[i].tem_disciplina == false){
+                System.out.println("Alunos: " + alunos[i].getNome() + " | RGM: " + alunos[i].getRgm());
+            }else{
+                System.out.println("Alunos: " + alunos[i].getNome() + " | RGM: " + alunos[i].getRgm()+" | Disciplinas: ");
+                getDisciplinasAlunos(alunos[i].getRgm());
+                System.out.println("-------------------------------");
+
+                }
+            }
     }
     public void remover(int rgm) {
         if(listaVazia()) {
@@ -115,7 +136,29 @@ public class Lista{
             }
         }
         return "Aluno com esse rgm ("+Integer.toString(rgm) +") nao existe!";
-    }     
+    } 
+    
+    public Alunos getAlunos(int rgm){
+        for(int i = 0; i <= tamanho_lista; i++) {
+            if(rgm == alunos[i].getRgm()) {
+                return alunos[i];
+            }
+        }
+        return null;
+    }
+
+    public void CriandoRelacionamentoAlunoDisciplina(Disciplinas disciplina,Alunos aluno){
+        DisciplinasAlunos novo_relacionamento = new DisciplinasAlunos(aluno, disciplina);
+        disciplinas_alunos[tamanho_relacionamento] = novo_relacionamento;
+        tamanho_relacionamento++;
+        aluno.tem_disciplina = true;
+        limpartela.limpatela();
+        System.out.println("O aluno <"+aluno.nome+"> Com o rgm <"+aluno.rgm+"> Foi adicionado a disciplina <"+disciplina.nome_disciplina+"> com sucesso!");
+
+    }    
 }
+ 
+
+
 
 

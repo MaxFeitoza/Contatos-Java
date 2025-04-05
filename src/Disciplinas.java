@@ -1,34 +1,41 @@
 package src;
 
-class Disciplinas<T>{
-    String nome_disciplina;
-    float nota;
-    private ListaEncadeada<T> inicio;
+class Disciplinas {
+    int id;
+    String nome_disciplina; 
+    double nota;  
+    int rgm;  
+    Disciplinas next; 
 
-
-    void disciplinas(String nome_disciplina, float nota){
+    public Disciplinas(int id,String nome_disciplina, Alunos aluno) {
         this.nome_disciplina = nome_disciplina;
-        this.nota = nota;
-        this.inicio = null;
+        this.id = id;
+        if(aluno!=null){
+            this.nota = aluno.nota;
+            this.rgm = aluno.rgm;
+        } 
+        this.next = null; 
+    }
+}
+
+class ListaDisciplina {
+    Disciplinas no;  
+
+
+    public ListaDisciplina() {
+        no = null;
     }
 
-    void AdicionaDisciplina(T elemento){
-        ListaEncadeada<T> No = new ListaEncadeada<T>(elemento);  //Criacao do No
-        this.inicio = No; //Apontando o "inicio" para o "No"
-        
-    }
-
-    public String getNome_disciplina() {
-        return nome_disciplina;
-    }
-
-
-    public void setNome_disciplina(String nome_disciplina) {
-        this.nome_disciplina = nome_disciplina;
-    }
-
-    @Override
-    public String toString() {
-        return "Disciplinas [nome_disciplina=" + nome_disciplina + ", nota=" + nota + ", inicio=" + inicio + "]";
+    public void adicionarDisciplina(int id,String nome_disciplina, Alunos aluno) {
+        Disciplinas novo_no = new Disciplinas(id,nome_disciplina, aluno);
+        if (no == null) {
+            no = novo_no; 
+        } else {
+            Disciplinas atual = no;
+            while (atual.next != null) {
+                atual = atual.next;  
+            }
+            atual.next = novo_no;  
+        }
     }
 }

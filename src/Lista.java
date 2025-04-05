@@ -113,13 +113,13 @@ public class Lista{
         }
         
         if(posicao == -1) {
+            limpartela.limpatela();
             System.out.println("Aluno com RGM " + rgm + " não encontrado!");
             return;
         }
         
         
-        
-        
+
         deslocaEsquerda(posicao);
         alunos[tamanho_lista] = null;
         tamanho_lista--;

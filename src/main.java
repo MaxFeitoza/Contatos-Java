@@ -54,7 +54,6 @@ import java.util.Scanner;
                         System.out.println("Digite o RGM do aluno que deseja remover: ");
                         int RGM = input.nextInt();
                         lista.remover(RGM);
-                        System.out.println("aluno removido!");
                         break;
                     
                     case 4:
@@ -127,6 +126,6 @@ import java.util.Scanner;
                 }
 
             }
-                } 
+        } 
     }               
     

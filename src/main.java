@@ -117,7 +117,7 @@ import java.util.Scanner;
                                 }
                             }
                         }
-                    break;
+                        break;
 
                     case 6:
                         limpartela.limpatela();

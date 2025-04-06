@@ -147,13 +147,23 @@ public class Lista{
         return null;
     }
 
-    public void CriandoRelacionamentoAlunoDisciplina(Disciplinas disciplina,Alunos aluno){
+    public boolean CriandoRelacionamentoAlunoDisciplina(Disciplinas disciplina,Alunos aluno){
+        if(tamanho_relacionamento >= 1){
+            for(int i = 0 ; i < tamanho_relacionamento ; i++){
+                if(disciplinas_alunos[i].rgm_aluno == aluno.rgm && disciplinas_alunos[i].nome_disciplina == disciplina.nome_disciplina){
+                    limpartela.limpatela();
+                    System.out.println("Esse aluno ja esta nessa disciplina!");
+                    return false;   
+                }
+            }
+        }
         DisciplinasAlunos novo_relacionamento = new DisciplinasAlunos(aluno, disciplina);
         disciplinas_alunos[tamanho_relacionamento] = novo_relacionamento;
         tamanho_relacionamento++;
         aluno.tem_disciplina = true;
         limpartela.limpatela();
         System.out.println("O aluno <"+aluno.nome+"> Com o rgm <"+aluno.rgm+"> Foi adicionado a disciplina <"+disciplina.nome_disciplina+"> com sucesso!");
+        return true;
 
     }    
 }

@@ -1,5 +1,7 @@
 package src;
 import java.util.Scanner;
+
+import org.xml.sax.SAXException;
     public class main {
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
@@ -73,6 +75,7 @@ import java.util.Scanner;
                         }
 
                     case 5:
+                        boolean sair_caso_5 = false;
                         limpartela.limpatela();
                         if (lista.listaVazia()){
                             limpartela.limpatela();
@@ -91,10 +94,12 @@ import java.util.Scanner;
                             }else{
                                 limpartela.limpatela();
                                 System.out.println("Aluno encontrado!\nDigite o numero da disciplina que voce deseja adiconar esse aluno\nDisciplinas disponiveis:\n");
+                                while (sair_caso_5==false) {
                                 System.out.println("1-"+estrutura_dados.nome_disciplina);
                                 System.out.println("2-"+banco_dados.nome_disciplina);
                                 System.out.println("3-"+poo.nome_disciplina);
-                                System.out.println("4-"+algoritmos.nome_disciplina+"\n");
+                                System.out.println("4-"+algoritmos.nome_disciplina);
+                                System.out.println("Outros-Sair");
                                 int escolha_usuario = entrada.nextInt();
                                 switch(escolha_usuario) {
                                     case 1:
@@ -111,8 +116,9 @@ import java.util.Scanner;
                                         break;
                                     default:
                                         limpartela.limpatela();
-                                        System.out.println("Nao existe essa disciplina!");
+                                        sair_caso_5 = true;
                                         break;
+                                    }
                                 }
                             }
                         }

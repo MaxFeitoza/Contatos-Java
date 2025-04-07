@@ -3,7 +3,6 @@ package src;
 class Disciplinas {
     int id;
     String nome_disciplina; 
-    double nota;  
     int rgm;  
     Disciplinas next; 
 
@@ -11,7 +10,6 @@ class Disciplinas {
         this.nome_disciplina = nome_disciplina;
         this.id = id;
         if(aluno!=null){
-            this.nota = aluno.nota;
             this.rgm = aluno.rgm;
         } 
         this.next = null; 

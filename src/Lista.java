@@ -1,6 +1,5 @@
 package src;
 
-import javax.print.DocFlavor.STRING;
 
 public class Lista{
     private static final int MAX = 60;
@@ -51,13 +50,7 @@ public class Lista{
             System.out.println("Lista de alunos cheia!");
             return false;
         }
-        Alunos Aluno = new Alunos(nome, rgm);
-        for (int i = 0; i <= tamanho_lista; i++) {
-            if (Aluno.getRgm() == alunos[i].getRgm()) {
-                return false;
-            }
-        }
-        
+        Alunos Aluno = new Alunos(nome, rgm);        
         int posicao = 0;
         // verifica se a posicao é menor ou igual que o ultimo Alunos e se o RGM do ultimo Alunos é menor  que o RGM do Alunos novo
         while (posicao <= tamanho_lista && (alunos[posicao].getRgm()) < (Aluno.getRgm())) {

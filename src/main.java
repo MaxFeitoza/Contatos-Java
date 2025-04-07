@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
             Lista lista = new Lista();
             boolean continua = true;
             ListaDisciplina lista_encadeada = new ListaDisciplina();
-            Disciplinas estrutura_dados = lista_encadeada.adicionarDisciplina(1,"Estrutura de dados I",null);
-            Disciplinas banco_dados = lista_encadeada.adicionarDisciplina(2,"Banco de dados",null);
-            Disciplinas poo = lista_encadeada.adicionarDisciplina(3,"Programacao orientada objeto",null);
-            Disciplinas algoritmos = lista_encadeada.adicionarDisciplina(4,"Tecnicas de desenvolvimento de algoritmos",null);
+            Disciplinas estrutura_dados = lista_encadeada.adicionarDisciplina(1,"Estrutura de dados I",null); // CRIA DISCIPLINA USANDO O METODO DA DISCIPLINA ENCADEADA
+            Disciplinas banco_dados = lista_encadeada.adicionarDisciplina(2,"Banco de dados",null);  // CRIA DISCIPLINA USANDO O METODO DA DISCIPLINA ENCADEADA 
+            Disciplinas poo = lista_encadeada.adicionarDisciplina(3,"Programacao orientada objeto",null);  // CRIA DISCIPLINA USANDO O METODO DA DISCIPLINA ENCADEADA 
+            Disciplinas algoritmos = lista_encadeada.adicionarDisciplina(4,"Tecnicas de desenvolvimento de algoritmos",null);  // CRIA DISCIPLINA USANDO O METODO DA DISCIPLINA ENCADEADA
             while(continua){
                 System.out.println("Menu");
                 System.out.println("1 - Cadastrar Aluno");

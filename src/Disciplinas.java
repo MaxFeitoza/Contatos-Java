@@ -24,16 +24,18 @@ class ListaDisciplina {
         no = null;
     }
 
-    public void adicionarDisciplina(int id,String nome_disciplina, Alunos aluno) {
-        Disciplinas novo_no = new Disciplinas(id,nome_disciplina, aluno);
+    public Disciplinas adicionarDisciplina(int id,String nome_disciplina, Alunos aluno) {
+        Disciplinas novo_no = new Disciplinas(id,nome_disciplina, aluno); // CRIA DISCIPLINA NOVA 'NOVO_NO'
         if (no == null) {
-            no = novo_no; 
+            no = novo_no;  // se o no FOR NULO --> ESTA NO COMECO DA LISTA 
         } else {
-            Disciplinas atual = no;
-            while (atual.next != null) {
+            // se o NO nao for nulo (EXISTE OUTRAS DISCIPLINAS)
+            Disciplinas atual = no; 
+            while (atual.next != null) { //PERCORRE CADA DISCIPLINA APARTIR DO SEU 'NEXT' (que e a proxima disciplina) E SE O NEXT FOR NULL (ESTAMOS NO FINAL DA LISTA) ATUALIZA NEXT PARA A NOVA DISCIPLINA CRIADA (NOVO_NO)
                 atual = atual.next;  
             }
             atual.next = novo_no;  
         }
+        return novo_no;
     }
 }

@@ -7,11 +7,11 @@ import org.xml.sax.SAXException;
             Scanner input = new Scanner(System.in);
             Lista lista = new Lista();
             boolean continua = true;
-            
-            Disciplinas estrutura_dados = new Disciplinas(1,"Estrutura de dados I",null);
-            Disciplinas banco_dados = new Disciplinas(2,"Banco de dados",null);
-            Disciplinas poo = new Disciplinas(3,"Programacao orientada objeto",null);
-            Disciplinas algoritmos = new Disciplinas(4,"Tecnicas de desenvolvimento de algoritmos",null);
+            ListaDisciplina lista_encadeada = new ListaDisciplina();
+            Disciplinas estrutura_dados = lista_encadeada.adicionarDisciplina(1,"Estrutura de dados I",null);
+            Disciplinas banco_dados = lista_encadeada.adicionarDisciplina(2,"Banco de dados",null);
+            Disciplinas poo = lista_encadeada.adicionarDisciplina(3,"Programacao orientada objeto",null);
+            Disciplinas algoritmos = lista_encadeada.adicionarDisciplina(4,"Tecnicas de desenvolvimento de algoritmos",null);
             while(continua){
                 System.out.println("Menu");
                 System.out.println("1 - Cadastrar Aluno");
